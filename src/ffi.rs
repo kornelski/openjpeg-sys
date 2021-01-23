@@ -24,6 +24,8 @@ pub enum RSIZ_CAPABILITIES {
     /// Profile name for a 4K image
     OPJ_MCT = 33024,
 }
+/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// Rsiz Capabilities
 pub use self::RSIZ_CAPABILITIES as OPJ_RSIZ_CAPABILITIES;
 #[repr(u32)]
 /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
@@ -56,6 +58,7 @@ pub enum PROG_ORDER {
     ///< component-precinct-resolution-layer order
     OPJ_CPRL = 4,
 }
+/// Progression order
 pub use self::PROG_ORDER as OPJ_PROG_ORDER;
 #[repr(i32)]
 /// Supported image color spaces
@@ -76,6 +79,7 @@ pub enum COLOR_SPACE {
     ///< CMYK
     OPJ_CLRSPC_CMYK = 5,
 }
+/// Supported image color spaces
 pub use self::COLOR_SPACE as OPJ_COLOR_SPACE;
 #[repr(i32)]
 /// Supported codec
@@ -94,6 +98,7 @@ pub enum CODEC_FORMAT {
     ///< JPX file format (JPEG 2000 Part-2) : to be coded
     OPJ_CODEC_JPX = 4,
 }
+/// Supported codec
 pub use self::CODEC_FORMAT as OPJ_CODEC_FORMAT;
 /// Callback function prototype for events
 /// * `msg` —                Event message
@@ -182,6 +187,8 @@ pub struct opj_poc {
     /// Temporary values for Tile parts, initialised in pi_create_encode
     pub ty0_t: OPJ_UINT32,
 }
+/// Progression order changes
+///
 pub type opj_poc_t = opj_poc;
 /// Compression parameters
 #[repr(C)]
@@ -318,6 +325,7 @@ pub struct opj_cparameters {
     ///To be used to combine OPJ_PROFILE_*, OPJ_EXTENSION_* and (sub)levels values.
     pub rsiz: OPJ_UINT16,
 }
+/// Compression parameters
 pub type opj_cparameters_t = opj_cparameters;
 /// Decompression parameters
 #[repr(C)]
@@ -364,6 +372,7 @@ pub struct opj_dparameters {
     pub jpwl_max_tiles: c_int,
     pub flags: c_uint,
 }
+/// Decompression parameters
 pub type opj_dparameters_t = opj_dparameters;
 /// JPEG2000 codec V2.
 pub type opj_codec_t = *mut c_void;
@@ -427,6 +436,7 @@ pub struct opj_image_comp {
     /// alpha channel
     pub alpha: OPJ_UINT16,
 }
+/// Defines a single image component
 pub type opj_image_comp_t = opj_image_comp;
 /// Defines image data and characteristics
 #[repr(C)]
@@ -451,6 +461,7 @@ pub struct opj_image {
     /// size of ICC profile
     pub icc_profile_len: OPJ_UINT32,
 }
+/// Defines image data and characteristics
 pub type opj_image_t = opj_image;
 /// Component parameters structure used by the opj_image_create function
 #[repr(C)]
@@ -475,6 +486,7 @@ pub struct opj_image_comptparm {
     /// signed (1) / unsigned (0)
     pub sgnd: OPJ_UINT32,
 }
+/// Component parameters structure used by the opj_image_create function
 pub type opj_image_cmptparm_t = opj_image_comptparm;
 /// Index structure : Information concerning a packet inside tile
 #[repr(C)]
@@ -489,6 +501,7 @@ pub struct opj_packet_info {
     /// packet distorsion
     pub disto: f64,
 }
+/// Index structure : Information concerning a packet inside tile
 pub type opj_packet_info_t = opj_packet_info;
 /// Marker structure
 #[repr(C)]
@@ -501,6 +514,7 @@ pub struct opj_marker_info {
     /// length, marker val included
     pub len: c_int,
 }
+/// Marker structure
 pub type opj_marker_info_t = opj_marker_info;
 /// Index structure : Information concerning tile-parts
 #[repr(C)]
@@ -517,6 +531,7 @@ pub struct opj_tp_info {
     /// number of packets of tile part
     pub tp_numpacks: c_int,
 }
+/// Index structure : Information concerning tile-parts
 pub type opj_tp_info_t = opj_tp_info;
 /// Index structure : information regarding tiles
 #[repr(C)]
@@ -557,6 +572,7 @@ pub struct opj_tile_info {
     /// information concerning tile parts
     pub tp: *mut opj_tp_info_t,
 }
+/// Index structure : information regarding tiles
 pub type opj_tile_info_t = opj_tile_info;
 /// Index structure of the codestream
 #[repr(C)]
@@ -578,9 +594,7 @@ pub struct opj_codestream_info {
     pub tile_x: c_int,
     /// tile size in y
     pub tile_y: c_int,
-
     pub tile_Ox: c_int,
-
     pub tile_Oy: c_int,
     /// number of tiles in X
     pub tw: c_int,
@@ -607,6 +621,7 @@ pub struct opj_codestream_info {
     /// information regarding tiles inside image
     pub tile: *mut opj_tile_info_t,
 }
+/// Index structure of the codestream
 pub type opj_codestream_info_t = opj_codestream_info;
 /// Tile-component coding parameters information
 #[repr(C)]
@@ -641,6 +656,7 @@ pub struct opj_tccp_info {
     /// precinct height
     pub prch: [OPJ_UINT32; 33usize],
 }
+/// Tile-component coding parameters information
 pub type opj_tccp_info_t = opj_tccp_info;
 /// Tile coding parameters information
 #[repr(C)]
@@ -659,6 +675,7 @@ pub struct opj_tile_v2_info {
     /// information concerning tile component parameters
     pub tccp_info: *mut opj_tccp_info_t,
 }
+/// Tile coding parameters information
 pub type opj_tile_info_v2_t = opj_tile_v2_info;
 /// Information structure about the codestream (FIXME should be expand and enhance)
 #[repr(C)]
@@ -683,6 +700,7 @@ pub struct opj_codestream_info_v2 {
     /// information regarding tiles inside image
     pub tile_info: *mut opj_tile_info_v2_t,
 }
+/// Information structure about the codestream (FIXME should be expand and enhance)
 pub type opj_codestream_info_v2_t = opj_codestream_info_v2;
 /// Index structure about a tile part
 #[repr(C)]
@@ -695,6 +713,7 @@ pub struct opj_tp_index {
     /// end position
     pub end_pos: OPJ_OFF_T,
 }
+/// Index structure about a tile part
 pub type opj_tp_index_t = opj_tp_index;
 /// Index structure about a tile
 #[repr(C)]
@@ -721,6 +740,7 @@ pub struct opj_tile_index {
     /// information concerning packets inside tile
     pub packet_index: *mut opj_packet_info_t,
 }
+/// Index structure about a tile
 pub type opj_tile_index_t = opj_tile_index;
 /// Index structure of the codestream (FIXME should be expand and enhance)
 #[repr(C)]
@@ -738,11 +758,10 @@ pub struct opj_codestream_index {
     pub marker: *mut opj_marker_info_t,
     /// actual size of markers array
     pub maxmarknum: OPJ_UINT32,
-
     pub nb_of_tiles: OPJ_UINT32,
-
     pub tile_index: *mut opj_tile_index_t,
 }
+/// Index structure of the codestream (FIXME should be expand and enhance)
 pub type opj_codestream_index_t = opj_codestream_index;
 /// Info structure of the JP2 file
 /// EXPERIMENTAL FOR THE MOMENT
@@ -751,6 +770,8 @@ pub type opj_codestream_index_t = opj_codestream_index;
 pub struct opj_jp2_metadata {
     pub not_used: OPJ_INT32,
 }
+/// Info structure of the JP2 file
+/// EXPERIMENTAL FOR THE MOMENT
 pub type opj_jp2_metadata_t = opj_jp2_metadata;
 /// Index structure of the JP2 file
 /// EXPERIMENTAL FOR THE MOMENT
@@ -759,6 +780,8 @@ pub type opj_jp2_metadata_t = opj_jp2_metadata;
 pub struct opj_jp2_index {
     pub not_used: OPJ_INT32,
 }
+/// Index structure of the JP2 file
+/// EXPERIMENTAL FOR THE MOMENT
 pub type opj_jp2_index_t = opj_jp2_index;
 extern "C" {
     pub fn opj_version() -> *const c_char;
@@ -993,15 +1016,14 @@ extern "C" {
     /// number, or "ALL_CPUS". If OPJ_NUM_THREADS is set and this function is called,
     /// this function will override the behaviour of the environment variable.
     ///
-    /// Currently this function must be called after opj_setup_decoder() and
-    /// before opj_read_header().
+    /// This function must be called after opj_setup_decoder() and
+    /// before opj_read_header() for the decoding side, or after opj_setup_encoder()
+    /// and before opj_start_compress() for the encoding side.
     ///
-    /// Note: currently only has effect on the decompressor.
+    /// * 'p_codec' —        decompressor or compressor handler
+    /// * 'num_threads' —    number of threads.
     ///
-    /// * `p_codec` —        decompressor handler
-    /// * `num_threads` —    number of threads.
-    ///
-    /// @return OPJ_TRUE     if the decoder is correctly set
+    /// @return OPJ_TRUE     if the function is successful.
     pub fn opj_codec_set_threads(
         p_codec: *mut opj_codec_t,
         num_threads: c_int,
@@ -1233,6 +1255,32 @@ extern "C" {
         p_codec: *mut opj_codec_t,
         parameters: *mut opj_cparameters_t,
         image: *mut opj_image_t,
+    ) -> OPJ_BOOL;
+}
+extern "C" {
+    /// Specify extra options for the encoder.
+    ///
+    /// This may be called after opj_setup_encoder() and before opj_start_compress()
+    ///
+    /// This is the way to add new options in a fully ABI compatible way, without
+    /// extending the opj_cparameters_t structure.
+    ///
+    /// Currently supported options are:
+    /// <ul>
+    /// <li>PLT=YES/NO. Defaults to NO. If set to YES, PLT marker segments,
+    ///     indicating the length of each packet in the tile-part header, will be
+    ///     written. Since 2.3.2</li>
+    /// </ul>
+    ///
+    /// * 'p_codec' —        Compressor handle
+    /// * 'p_options' —      Compression options. This should be a NULL terminated
+    ///                      array of strings. Each string is of the form KEY=VALUE.
+    ///
+    /// @return OPJ_TRUE in case of success.
+    /// @since 2.3.2
+    pub fn opj_encoder_set_extra_options(
+        p_codec: *mut opj_codec_t,
+        p_options: *const *const c_char,
     ) -> OPJ_BOOL;
 }
 extern "C" {
