@@ -14,7 +14,7 @@ pub type OPJ_SIZE_T = usize;
 #[repr(u32)]
 /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
 /// Rsiz Capabilities
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum RSIZ_CAPABILITIES {
     OPJ_STD_RSIZ = 0,
     /// Standard JPEG2000 profile
@@ -30,7 +30,7 @@ pub use self::RSIZ_CAPABILITIES as OPJ_RSIZ_CAPABILITIES;
 #[repr(u32)]
 /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
 /// Digital cinema operation mode
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum CINEMA_MODE {
     OPJ_OFF = 0,
     /// Not Digital Cinema
@@ -40,10 +40,12 @@ pub enum CINEMA_MODE {
     /// 2K Digital Cinema at 48 fps
     OPJ_CINEMA4K_24 = 3,
 }
+/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// Digital cinema operation mode
 pub use self::CINEMA_MODE as OPJ_CINEMA_MODE;
 #[repr(i32)]
 /// Progression order
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum PROG_ORDER {
     ///< place-holder
     OPJ_PROG_UNKNOWN = -1,
