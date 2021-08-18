@@ -26,7 +26,6 @@
 /* check if function `memalign` exists */
 /* #undef OPJ_HAVE_MEMALIGN */
 /* check if function `posix_memalign` exists */
-#define OPJ_HAVE_POSIX_MEMALIGN
 
 #if !defined(_POSIX_C_SOURCE)
 #if defined(OPJ_HAVE_FSEEKO) || defined(OPJ_HAVE_POSIX_MEMALIGN)

@@ -4,6 +4,12 @@ fn main() {
     let mut cc = cc::Build::new();
     let jp2dir = Path::new("vendor/src/lib/openjp2");
 
+    let target = std::env::var("CARGO_CFG_TARGET_FAMILY").expect("CARGO_CFG_TARGET_FAMILY");
+    if target == "windows" {
+        cc.define("OPJ_HAVE__ALIGNED_MALLOC", Some("1"));
+    } else {
+        cc.define("OPJ_HAVE_POSIX_MEMALIGN", Some("1"));
+    }
     cc.include(jp2dir);
     cc.include("config");
     cc.define("OPJ_STATIC", Some("1"));
