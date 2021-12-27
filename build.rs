@@ -21,6 +21,7 @@ fn main() {
         "cio.c",
         "dwt.c",
         "event.c",
+        "ht_dec.c",
         "image.c",
         "invert.c",
         "j2k.c",
