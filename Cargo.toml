@@ -19,4 +19,9 @@ libc = "0.2.94"
 cc = "1.0.67"
 
 [features]
+default = ["threads"]
+
+# Compile OpenJPEG with thread support.
+threads = []
+
 parallel = ["cc/parallel"]
