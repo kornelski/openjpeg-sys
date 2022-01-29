@@ -1081,6 +1081,17 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
+    /// Set strict decoding parameter for this decoder.  If strict decoding is enabled, partial bit
+    /// streams will fail to decode.  If strict decoding is disabled, the decoder will decode partial
+    /// bitstreams as much as possible without erroring
+    ///
+    /// * 'p_codec' —        decompressor handler
+    /// * 'strict' —         OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable
+    ///
+    /// @return true         if the decoder is correctly set
+    pub fn opj_decoder_set_strict_mode(p_codec: *mut opj_codec_t, strict: OPJ_BOOL) -> OPJ_BOOL;
+}
+extern "C" {
     /// Allocates worker threads for the compressor/decompressor.
     ///
     /// By default, only the main thread is used. If this function is not used,
