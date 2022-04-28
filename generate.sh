@@ -1,9 +1,10 @@
 #!/bin/bash
 
 bindgen --opaque-type=FILE \
-        --blacklist-type='^_.*' \
-        --whitelist-function='^opj.*' \
-        --whitelist-type='^opj.*' \
+        --blocklist-type='^_.*' \
+        --allowlist-function='^opj.*' \
+        --allowlist-type='^opj.*' \
+        --allowlist-var='^OPJ.*' \
         --rust-target=1.26 \
         --rustified-enum='.*' \
         --distrust-clang-mangling --no-layout-tests \
