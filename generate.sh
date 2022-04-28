@@ -5,6 +5,7 @@ bindgen --opaque-type=FILE \
         --allowlist-function='^opj.*' \
         --allowlist-type='^opj.*' \
         --allowlist-var='^OPJ.*' \
+        --size_t-is-usize \
         --rust-target=1.26 \
         --rustified-enum='.*' \
         --distrust-clang-mangling --no-layout-tests \
