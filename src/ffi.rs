@@ -80,9 +80,8 @@ pub type OPJ_INT32 = i32;
 pub type OPJ_UINT32 = u32;
 pub type OPJ_UINT64 = u64;
 pub type OPJ_OFF_T = i64;
-pub type size_t = c_ulong;
 use libc::FILE;
-pub type OPJ_SIZE_T = size_t;
+pub type OPJ_SIZE_T = usize;
 #[repr(u32)]
 /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
 /// Rsiz Capabilities
