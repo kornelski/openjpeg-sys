@@ -1,7 +1,7 @@
 [package]
 name = "openjpeg-sys"
 description = "OpenJPEG (JPEG 2000) FFI bindings"
-version = "1.0.6"
+version = "1.0.7"
 authors = ["Kornel <kornel@geekhood.net>"]
 edition = "2018"
 license = "BSD-2-Clause"
@@ -25,3 +25,6 @@ default = ["threads"]
 threads = []
 
 parallel = ["cc/parallel"]
+
+[badges]
+maintenance = { status = "as-is" }
