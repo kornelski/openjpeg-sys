@@ -6,7 +6,7 @@ bindgen --opaque-type=FILE \
         --allowlist-type='^opj.*' \
         --allowlist-var='^OPJ.*' \
         --size_t-is-usize \
-        --rust-target=1.26 \
+        --rust-target=1.47 \
         --rustified-enum='.*' \
         --distrust-clang-mangling --no-layout-tests \
         vendor/src/lib/openjp2/openjpeg.h -- -Ivendor/src/src/lib/openjp2/ -Iconfig/ |
