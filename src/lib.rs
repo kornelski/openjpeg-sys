@@ -1,4 +1,3 @@
-
 #[allow(bad_style)]
 mod ffi;
 

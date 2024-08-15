@@ -44,7 +44,7 @@ fn main() {
         "opj_malloc.c",
         "sparse_array.c",
     ];
-    for file in files.iter() {
+    for file in &files {
         cc.file(jp2dir.join(file));
     }
     cc.compile("openjp2");

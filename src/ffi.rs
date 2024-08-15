@@ -83,7 +83,7 @@ pub type OPJ_OFF_T = i64;
 use libc::FILE;
 pub type OPJ_SIZE_T = usize;
 #[repr(u32)]
-/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `OPJ_EXTENSION_*` instead
 /// Rsiz Capabilities
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum RSIZ_CAPABILITIES {
@@ -95,11 +95,11 @@ pub enum RSIZ_CAPABILITIES {
     /// Profile name for a 4K image
     OPJ_MCT = 33024,
 }
-/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `OPJ_EXTENSION_*` instead
 /// Rsiz Capabilities
 pub use self::RSIZ_CAPABILITIES as OPJ_RSIZ_CAPABILITIES;
 #[repr(u32)]
-/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `OPJ_EXTENSION_*` instead
 /// Digital cinema operation mode
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum CINEMA_MODE {
@@ -111,7 +111,7 @@ pub enum CINEMA_MODE {
     /// 2K Digital Cinema at 48 fps
     OPJ_CINEMA4K_24 = 3,
 }
-/// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+/// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `OPJ_EXTENSION_*` instead
 /// Digital cinema operation mode
 pub use self::CINEMA_MODE as OPJ_CINEMA_MODE;
 #[repr(i32)]
@@ -219,63 +219,62 @@ pub struct opj_poc {
     pub ty0: OPJ_INT32,
     /// Start and end values for Tile width and height
     pub ty1: OPJ_INT32,
-    /// Start value, initialised in pi_initialise_encode
+    /// Start value, initialised in `pi_initialise_encode`
     pub layS: OPJ_UINT32,
-    /// Start value, initialised in pi_initialise_encode
+    /// Start value, initialised in `pi_initialise_encode`
     pub resS: OPJ_UINT32,
-    /// Start value, initialised in pi_initialise_encode
+    /// Start value, initialised in `pi_initialise_encode`
     pub compS: OPJ_UINT32,
-    /// Start value, initialised in pi_initialise_encode
+    /// Start value, initialised in `pi_initialise_encode`
     pub prcS: OPJ_UINT32,
-    /// End value, initialised in pi_initialise_encode
+    /// End value, initialised in `pi_initialise_encode`
     pub layE: OPJ_UINT32,
-    /// End value, initialised in pi_initialise_encode
+    /// End value, initialised in `pi_initialise_encode`
     pub resE: OPJ_UINT32,
-    /// End value, initialised in pi_initialise_encode
+    /// End value, initialised in `pi_initialise_encode`
     pub compE: OPJ_UINT32,
-    /// End value, initialised in pi_initialise_encode
+    /// End value, initialised in `pi_initialise_encode`
     pub prcE: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub txS: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub txE: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub tyS: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub tyE: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub dx: OPJ_UINT32,
-    /// Start and end values of Tile width and height, initialised in pi_initialise_encode
+    /// Start and end values of Tile width and height, initialised in `pi_initialise_encode`
     pub dy: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub lay_t: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub res_t: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub comp_t: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub prc_t: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub tx0_t: OPJ_UINT32,
-    /// Temporary values for Tile parts, initialised in pi_create_encode
+    /// Temporary values for Tile parts, initialised in `pi_create_encode`
     pub ty0_t: OPJ_UINT32,
 }
 /// Progression order changes
-///
 pub type opj_poc_t = opj_poc;
 /// Compression parameters
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct opj_cparameters {
-    /// size of tile: tile_size_on = false (not in argument) or = true (in argument)
+    /// size of tile: `tile_size_on` = false (not in argument) or = true (in argument)
     pub tile_size_on: OPJ_BOOL,
-    /// XTOsiz
+    /// `XTOsiz`
     pub cp_tx0: c_int,
-    /// YTOsiz
+    /// `YTOsiz`
     pub cp_ty0: c_int,
-    /// XTsiz
+    /// `XTsiz`
     pub cp_tdx: c_int,
-    /// YTsiz
+    /// `YTsiz`
     pub cp_tdy: c_int,
     /// allocation by rate/distortion
     pub cp_disto_alloc: c_int,
@@ -289,7 +288,7 @@ pub struct opj_cparameters {
     pub cp_comment: *mut c_char,
     /// csty : coding style
     pub csty: c_int,
-    /// progression order (default OPJ_LRCP)
+    /// progression order (default `OPJ_LRCP`)
     pub prog_order: OPJ_PROG_ORDER,
     /// progression order changes
     pub POC: [opj_poc_t; 32usize],
@@ -297,7 +296,7 @@ pub struct opj_cparameters {
     pub numpocs: OPJ_UINT32,
     /// number of layers
     pub tcp_numlayers: c_int,
-    /// rates of layers - might be subsequently limited by the max_cs_size field.
+    /// rates of layers - might be subsequently limited by the `max_cs_size` field.
     /// Should be decreasing. 1 can be
     /// used as last value to indicate the last layer is lossless.
     pub tcp_rates: [f32; 100usize],
@@ -310,7 +309,7 @@ pub struct opj_cparameters {
     pub cblockw_init: c_int,
     /// initial code block height, default to 64
     pub cblockh_init: c_int,
-    /// mode switch (cblk_style)
+    /// mode switch (`cblk_style`)
     pub mode: c_int,
     /// 1 : use the irreversible DWT 9-7, 0 : use lossless compression (default)
     pub irreversible: c_int,
@@ -327,9 +326,9 @@ pub struct opj_cparameters {
     pub infile: [c_char; 4096usize],
     /// output file name
     pub outfile: [c_char; 4096usize],
-    /// DEPRECATED. Index generation is now handled with the opj_encode_with_info() function. Set to NULL
+    /// DEPRECATED. Index generation is now handled with the `opj_encode_with_info()` function. Set to NULL
     pub index_on: c_int,
-    /// DEPRECATED. Index generation is now handled with the opj_encode_with_info() function. Set to NULL
+    /// DEPRECATED. Index generation is now handled with the `opj_encode_with_info()` function. Set to NULL
     pub index: [c_char; 4096usize],
     /// subimage encoding: origin image offset in x direction
     pub image_offset_x0: c_int,
@@ -339,7 +338,7 @@ pub struct opj_cparameters {
     pub subsampling_dx: c_int,
     /// subsampling value for dy
     pub subsampling_dy: c_int,
-    /// input file format 0: PGX, 1: PxM, 2: BMP 3:TIF
+    /// input file format 0: PGX, 1: `PxM`, 2: BMP 3:TIF
     pub decod_format: c_int,
     /// output file format 0: J2K, 1: JP2, 2: JPT
     pub cod_format: c_int,
@@ -369,13 +368,13 @@ pub struct opj_cparameters {
     pub jpwl_sens_TPH_tileno: [c_int; 16usize],
     /// sensitivity methods for TPHs (-1=no,0-7)
     pub jpwl_sens_TPH: [c_int; 16usize],
-    /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and MAX_COMP_SIZE instead
+    /// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `MAX_COMP_SIZE` instead
     /// Digital Cinema compliance 0-not compliant, 1-compliant
     pub cp_cinema: OPJ_CINEMA_MODE,
     /// Maximum size (in bytes) for each component.
     /// If == 0, component size limitation is not considered
     pub max_comp_size: c_int,
-    /// DEPRECATED: use RSIZ, OPJ_PROFILE_* and OPJ_EXTENSION_* instead
+    /// DEPRECATED: use RSIZ, `OPJ_PROFILE_*` and `OPJ_EXTENSION_*` instead
     /// Profile name
     pub cp_rsiz: OPJ_RSIZ_CAPABILITIES,
     /// Tile part generation
@@ -391,11 +390,11 @@ pub struct opj_cparameters {
     pub mct_data: *mut c_void,
     /// Maximum size (in bytes) for the whole codestream.
     /// If == 0, codestream size limitation is not considered
-    /// If it does not comply with tcp_rates, max_cs_size prevails
+    /// If it does not comply with `tcp_rates`, `max_cs_size` prevails
     /// and a warning is issued.
     pub max_cs_size: c_int,
     /// RSIZ value
-    ///To be used to combine OPJ_PROFILE_*, OPJ_EXTENSION_* and (sub)levels values.
+    ///To be used to combine `OPJ_PROFILE_*`, `OPJ_EXTENSION_*` and (sub)levels values.
     pub rsiz: OPJ_UINT16,
 }
 /// Compression parameters
@@ -421,7 +420,7 @@ pub struct opj_dparameters {
     pub outfile: [c_char; 4096usize],
     /// input file format 0: J2K, 1: JP2, 2: JPT
     pub decod_format: c_int,
-    /// output file format 0: PGX, 1: PxM, 2: BMP
+    /// output file format 0: PGX, 1: `PxM`, 2: BMP
     pub cod_format: c_int,
     /// Decoding area left boundary
     pub DA_x0: OPJ_UINT32,
@@ -482,9 +481,9 @@ pub type opj_stream_t = *mut c_void;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct opj_image_comp {
-    /// XRsiz: horizontal separation of a sample of ith component with respect to the reference grid
+    /// `XRsiz`: horizontal separation of a sample of ith component with respect to the reference grid
     pub dx: OPJ_UINT32,
-    /// YRsiz: vertical separation of a sample of ith component with respect to the reference grid
+    /// `YRsiz`: vertical separation of a sample of ith component with respect to the reference grid
     pub dy: OPJ_UINT32,
     /// data width
     pub w: OPJ_UINT32,
@@ -515,9 +514,9 @@ pub type opj_image_comp_t = opj_image_comp;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct opj_image {
-    /// XOsiz: horizontal offset from the origin of the reference grid to the left side of the image area
+    /// `XOsiz`: horizontal offset from the origin of the reference grid to the left side of the image area
     pub x0: OPJ_UINT32,
-    /// YOsiz: vertical offset from the origin of the reference grid to the top side of the image area
+    /// `YOsiz`: vertical offset from the origin of the reference grid to the top side of the image area
     pub y0: OPJ_UINT32,
     /// Xsiz: width of the reference grid
     pub x1: OPJ_UINT32,
@@ -536,13 +535,13 @@ pub struct opj_image {
 }
 /// Defines image data and characteristics
 pub type opj_image_t = opj_image;
-/// Component parameters structure used by the opj_image_create function
+/// Component parameters structure used by the `opj_image_create` function
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct opj_image_comptparm {
-    /// XRsiz: horizontal separation of a sample of ith component with respect to the reference grid
+    /// `XRsiz`: horizontal separation of a sample of ith component with respect to the reference grid
     pub dx: OPJ_UINT32,
-    /// YRsiz: vertical separation of a sample of ith component with respect to the reference grid
+    /// `YRsiz`: vertical separation of a sample of ith component with respect to the reference grid
     pub dy: OPJ_UINT32,
     /// data width
     pub w: OPJ_UINT32,
@@ -559,7 +558,7 @@ pub struct opj_image_comptparm {
     /// signed (1) / unsigned (0)
     pub sgnd: OPJ_UINT32,
 }
-/// Component parameters structure used by the opj_image_create function
+/// Component parameters structure used by the `opj_image_create` function
 pub type opj_image_cmptparm_t = opj_image_comptparm;
 /// Index structure : Information concerning a packet inside tile
 #[repr(C)]
@@ -655,7 +654,7 @@ pub struct opj_codestream_info {
     pub D_max: f64,
     /// packet number
     pub packno: c_int,
-    /// writing the packet in the index with t2_encode_packets
+    /// writing the packet in the index with `t2_encode_packets`
     pub index_write: c_int,
     /// image width
     pub image_w: c_int,
@@ -754,13 +753,13 @@ pub type opj_tile_info_v2_t = opj_tile_v2_info;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct opj_codestream_info_v2 {
-    /// tile origin in x = XTOsiz
+    /// tile origin in x = `XTOsiz`
     pub tx0: OPJ_UINT32,
-    /// tile origin in y = YTOsiz
+    /// tile origin in y = `YTOsiz`
     pub ty0: OPJ_UINT32,
-    /// tile size in x = XTsiz
+    /// tile size in x = `XTsiz`
     pub tdx: OPJ_UINT32,
-    /// tile size in y = YTsiz
+    /// tile size in y = `YTsiz`
     pub tdy: OPJ_UINT32,
     /// number of tiles in X
     pub tw: OPJ_UINT32,
@@ -894,7 +893,7 @@ extern "C" {
 }
 extern "C" {
     /// Allocator for opj_image_t->comps[].data
-    /// To be paired with opj_image_data_free.
+    /// To be paired with `opj_image_data_free`.
     ///
     /// * `size` —     number of bytes to allocate
     ///
@@ -904,7 +903,7 @@ extern "C" {
 }
 extern "C" {
     /// Destructor for opj_image_t->comps[].data
-    /// To be paired with opj_image_data_alloc.
+    /// To be paired with `opj_image_data_alloc`.
     ///
     /// * `ptr` —     Pointer to free
     ///
@@ -929,7 +928,7 @@ extern "C" {
     pub fn opj_stream_create(p_buffer_size: OPJ_SIZE_T, p_is_input: OPJ_BOOL) -> *mut opj_stream_t;
 }
 extern "C" {
-    /// Destroys a stream created by opj_create_stream. This function does NOT close the abstract stream. If needed the user must
+    /// Destroys a stream created by `opj_create_stream`. This function does NOT close the abstract stream. If needed the user must
     /// close its own implementation of the stream.
     ///
     /// * `p_stream` —     the stream to destroy.
@@ -964,7 +963,7 @@ extern "C" {
 }
 extern "C" {
     /// Sets the given function to be used as a seek function, the stream is then seekable,
-    /// using SEEK_SET behavior.
+    /// using `SEEK_SET` behavior.
     /// * `p_stream` —     the stream to modify
     /// * `p_function` —   the function to use a skip function.
     pub fn opj_stream_set_seek_function(
@@ -976,7 +975,7 @@ extern "C" {
     /// Sets the given data to be used as a user data for the stream.
     /// * `p_stream` —     the stream to modify
     /// * `p_data` —       the data to set.
-    /// * `p_function` —   the function to free p_data when opj_stream_destroy() is called.
+    /// * `p_function` —   the function to free `p_data` when `opj_stream_destroy()` is called.
     pub fn opj_stream_set_user_data(
         p_stream: *mut opj_stream_t,
         p_data: *mut c_void,
@@ -987,7 +986,7 @@ extern "C" {
     /// Sets the length of the user data for the stream.
     ///
     /// * `p_stream` —     the stream to modify
-    /// * `data_length` —  length of the user_data.
+    /// * `data_length` —  length of the `user_data`.
     pub fn opj_stream_set_user_data_length(p_stream: *mut opj_stream_t, data_length: OPJ_UINT64);
 }
 extern "C" {
@@ -1085,8 +1084,8 @@ extern "C" {
     /// streams will fail to decode.  If strict decoding is disabled, the decoder will decode partial
     /// bitstreams as much as possible without erroring
     ///
-    /// * 'p_codec' —        decompressor handler
-    /// * 'strict' —         OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable
+    /// * '`p_codec`' —        decompressor handler
+    /// * 'strict' —         `OPJ_TRUE` to enable strict decoding, `OPJ_FALSE` to disable
     ///
     /// @return true         if the decoder is correctly set
     pub fn opj_decoder_set_strict_mode(p_codec: *mut opj_codec_t, strict: OPJ_BOOL) -> OPJ_BOOL;
@@ -1095,19 +1094,19 @@ extern "C" {
     /// Allocates worker threads for the compressor/decompressor.
     ///
     /// By default, only the main thread is used. If this function is not used,
-    /// but the OPJ_NUM_THREADS environment variable is set, its value will be
+    /// but the `OPJ_NUM_THREADS` environment variable is set, its value will be
     /// used to initialize the number of threads. The value can be either an integer
-    /// number, or "ALL_CPUS". If OPJ_NUM_THREADS is set and this function is called,
+    /// number, or "`ALL_CPUS`". If `OPJ_NUM_THREADS` is set and this function is called,
     /// this function will override the behaviour of the environment variable.
     ///
-    /// This function must be called after opj_setup_decoder() and
-    /// before opj_read_header() for the decoding side, or after opj_setup_encoder()
-    /// and before opj_start_compress() for the encoding side.
+    /// This function must be called after `opj_setup_decoder()` and
+    /// before `opj_read_header()` for the decoding side, or after `opj_setup_encoder()`
+    /// and before `opj_start_compress()` for the encoding side.
     ///
-    /// * 'p_codec' —        decompressor or compressor handler
-    /// * 'num_threads' —    number of threads.
+    /// * '`p_codec`' —        decompressor or compressor handler
+    /// * '`num_threads`' —    number of threads.
     ///
-    /// @return OPJ_TRUE     if the function is successful.
+    /// @return `OPJ_TRUE`     if the function is successful.
     pub fn opj_codec_set_threads(
         p_codec: *mut opj_codec_t,
         num_threads: c_int,
@@ -1130,28 +1129,28 @@ extern "C" {
 extern "C" {
     /// Restrict the number of components to decode.
     ///
-    /// This function should be called after opj_read_header().
+    /// This function should be called after `opj_read_header()`.
     ///
     /// This function enables to restrict the set of decoded components to the
     /// specified indices.
-    /// Note that the current implementation (apply_color_transforms == OPJ_FALSE)
+    /// Note that the current implementation (`apply_color_transforms` == `OPJ_FALSE`)
     /// is such that neither the multi-component transform at codestream level,
     /// nor JP2 channel transformations will be applied.
     /// Consequently the indices are relative to the codestream.
     ///
-    /// Note: opj_decode_tile_data() should not be used together with opj_set_decoded_components().
+    /// Note: `opj_decode_tile_data()` should not be used together with `opj_set_decoded_components()`.
     ///
     /// * `p_codec` —          the jpeg2000 codec to read.
-    /// * `numcomps` —         Size of the comps_indices array.
+    /// * `numcomps` —         Size of the `comps_indices` array.
     /// * `comps_indices` —    Array of numcomps values representing the indices
     ///                          of the components to decode (relative to the
     ///                          codestream, starting at 0)
     /// * `apply_color_transforms` —  Whether multi-component transform at codestream level
     ///                                 or JP2 channel transformations should be applied.
-    ///                                 Currently this parameter should be set to OPJ_FALSE.
-    ///                                 Setting it to OPJ_TRUE will result in an error.
+    ///                                 Currently this parameter should be set to `OPJ_FALSE`.
+    ///                                 Setting it to `OPJ_TRUE` will result in an error.
     ///
-    /// @return OPJ_TRUE         in case of success.
+    /// @return `OPJ_TRUE`         in case of success.
     pub fn opj_set_decoded_components(
         p_codec: *mut opj_codec_t,
         numcomps: OPJ_UINT32,
@@ -1160,20 +1159,20 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    /// Sets the given area to be decoded. This function should be called right after opj_read_header and before any tile header reading.
+    /// Sets the given area to be decoded. This function should be called right after `opj_read_header` and before any tile header reading.
     ///
     /// The coordinates passed to this function should be expressed in the reference grid,
     /// that is to say at the highest resolution level, even if requesting the image at lower
     /// resolution levels.
     ///
-    /// Generally opj_set_decode_area() should be followed by opj_decode(), and the
+    /// Generally `opj_set_decode_area()` should be followed by `opj_decode()`, and the
     /// codec cannot be re-used.
     /// In the particular case of an image made of a single tile, several sequences of
-    /// calls to opoj_set_decode_area() and opj_decode() are allowed, and will bring
+    /// calls to `opoj_set_decode_area()` and `opj_decode()` are allowed, and will bring
     /// performance improvements when reading an image by chunks.
     ///
     /// * `p_codec` —          the jpeg2000 codec.
-    /// * `p_image` —          the decoded image previously set by opj_read_header
+    /// * `p_image` —          the decoded image previously set by `opj_read_header`
     /// * `p_start_x` —        the left position of the rectangle to decode (in image coordinates).
     /// * `p_end_x` —          the right position of the rectangle to decode (in image coordinates).
     /// * `p_start_y` —        the up position of the rectangle to decode (in image coordinates).
@@ -1234,9 +1233,9 @@ extern "C" {
     ///
     /// * `p_codec` —              the jpeg2000 codec.
     /// * `p_tile_index` —         the index of the tile to write. At the moment, the tiles must be written from 0 to n-1 in sequence.
-    /// * `p_data` —               pointer to the data to write. Data is arranged in sequence, data_comp0, then data_comp1, then ... NO INTERLEAVING should be set.
+    /// * `p_data` —               pointer to the data to write. Data is arranged in sequence, `data_comp0`, then `data_comp1`, then ... NO INTERLEAVING should be set.
     /// * `p_data_size` —          this value os used to make sure the data being written is correct. The size must be equal to the sum for each component of
-    ///                              tile_width * tile_height * component_size. component_size can be 1,2 or 4 bytes, depending on the precision of the given component.
+    ///                              `tile_width` * `tile_height` * `component_size`. `component_size` can be 1,2 or 4 bytes, depending on the precision of the given component.
     /// * `p_stream` —             the stream to write data to.
     ///
     /// @return  true if the data could be written.
@@ -1250,13 +1249,13 @@ extern "C" {
 }
 extern "C" {
     /// Reads a tile header. This function is compulsory and allows one to know the size of the tile that will be decoded.
-    /// The user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.
+    /// The user may need to refer to the image got by `opj_read_header` to understand the size being taken by the tile.
     ///
     /// * `p_codec` —          the jpeg2000 codec.
     /// * `p_tile_index` —     pointer to a value that will hold the index of the tile being decoded, in case of success.
     /// * `p_data_size` —      pointer to a value that will hold the maximum size of the decoded data, in case of success. In case
     ///                          of truncated codestreams, the actual number of bytes decoded may be lower. The computation of the size is the same
-    ///                          as depicted in opj_write_tile.
+    ///                          as depicted in `opj_write_tile`.
     /// * `p_tile_x0` —        pointer to a value that will hold the x0 pos of the tile (in the image).
     /// * `p_tile_y0` —        pointer to a value that will hold the y0 pos of the tile (in the image).
     /// * `p_tile_x1` —        pointer to a value that will hold the x1 pos of the tile (in the image).
@@ -1282,15 +1281,15 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    /// Reads a tile data. This function is compulsory and allows one to decode tile data. opj_read_tile_header should be called before.
-    /// The user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.
+    /// Reads a tile data. This function is compulsory and allows one to decode tile data. `opj_read_tile_header` should be called before.
+    /// The user may need to refer to the image got by `opj_read_header` to understand the size being taken by the tile.
     ///
-    /// Note: opj_decode_tile_data() should not be used together with opj_set_decoded_components().
+    /// Note: `opj_decode_tile_data()` should not be used together with `opj_set_decoded_components()`.
     ///
     /// * `p_codec` —          the jpeg2000 codec.
-    /// * `p_tile_index` —     the index of the tile being decoded, this should be the value set by opj_read_tile_header.
+    /// * `p_tile_index` —     the index of the tile being decoded, this should be the value set by `opj_read_tile_header`.
     /// * `p_data` —           pointer to a memory block that will hold the decoded data.
-    /// * `p_data_size` —      size of p_data. p_data_size should be bigger or equal to the value set by opj_read_tile_header.
+    /// * `p_data_size` —      size of `p_data`. `p_data_size` should be bigger or equal to the value set by `opj_read_tile_header`.
     /// * `p_stream` —         the stream to decode.
     ///
     /// @return  true            if the data could be decoded.
@@ -1344,10 +1343,10 @@ extern "C" {
 extern "C" {
     /// Specify extra options for the encoder.
     ///
-    /// This may be called after opj_setup_encoder() and before opj_start_compress()
+    /// This may be called after `opj_setup_encoder()` and before `opj_start_compress()`
     ///
     /// This is the way to add new options in a fully ABI compatible way, without
-    /// extending the opj_cparameters_t structure.
+    /// extending the `opj_cparameters_t` structure.
     ///
     /// Currently supported options are:
     /// <ul>
@@ -1356,11 +1355,10 @@ extern "C" {
     ///     written. Since 2.3.2</li>
     /// </ul>
     ///
-    /// * 'p_codec' —        Compressor handle
-    /// * 'p_options' —      Compression options. This should be a NULL terminated
-    ///                      array of strings. Each string is of the form KEY=VALUE.
+    /// * '`p_codec`' —        Compressor handle
+    /// * '`p_options`' —      Compression options. This should be a NULL terminated array of strings. Each string is of the form KEY=VALUE.
     ///
-    /// @return OPJ_TRUE in case of success.
+    /// @return `OPJ_TRUE` in case of success.
     /// @since 2.3.2
     pub fn opj_encoder_set_extra_options(
         p_codec: *mut opj_codec_t,
@@ -1394,7 +1392,7 @@ extern "C" {
 }
 extern "C" {
     ///Destroy Codestream information after compression or decompression
-    ///@param cstr_info Codestream information structure
+    ///@param `cstr_info` Codestream information structure
     pub fn opj_destroy_cstr_info(cstr_info: *mut *mut opj_codestream_info_v2_t);
 }
 extern "C" {
@@ -1416,7 +1414,6 @@ extern "C" {
     /// * `p_codec` —          the jpeg2000 codec.
     ///
     /// @return                  a pointer to a codestream information structure.
-    ///
     pub fn opj_get_cstr_info(p_codec: *mut opj_codec_t) -> *mut opj_codestream_info_v2_t;
 }
 extern "C" {
@@ -1425,7 +1422,6 @@ extern "C" {
     /// * `p_codec` —          the jpeg2000 codec.
     ///
     /// @return                  a pointer to a codestream index structure.
-    ///
     pub fn opj_get_cstr_index(p_codec: *mut opj_codec_t) -> *mut opj_codestream_index_t;
 }
 extern "C" {
@@ -1437,7 +1433,6 @@ extern "C" {
     /// * `p_codec` —          the jpeg2000 codec.
     ///
     /// @return                  a pointer to a JP2 metadata structure.
-    ///
     pub fn opj_get_jp2_metadata(p_codec: *mut opj_codec_t) -> *mut opj_jp2_metadata_t;
 }
 extern "C" {
@@ -1446,7 +1441,6 @@ extern "C" {
     /// * `p_codec` —          the jpeg2000 codec.
     ///
     /// @return                  a pointer to a JP2 index structure.
-    ///
     pub fn opj_get_jp2_index(p_codec: *mut opj_codec_t) -> *mut opj_jp2_index_t;
 }
 extern "C" {
@@ -1467,7 +1461,7 @@ extern "C" {
 }
 extern "C" {
     /// Returns if the library is built with thread support.
-    /// OPJ_TRUE if mutex, condition, thread, thread pool are available.
+    /// `OPJ_TRUE` if mutex, condition, thread, thread pool are available.
     pub fn opj_has_thread_support() -> OPJ_BOOL;
 }
 extern "C" {
